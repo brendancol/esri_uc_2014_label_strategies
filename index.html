@@ -62,13 +62,41 @@
 					<img class="logo" src="http://www.blueraster.com/wp-content/themes/blueraster/images/logo.png"/>
 				</section>
 
-				<!-- EXAMPLES -->
-
-				<!-- position:absolute; top:0; bottom:0; width:100%; -->
-
 				<section class="present">
-					<h2><a>JavaScript!</a></h2>
+					<h2><a>JavaScript APIs!</a></h2>
 				</section>
+
+				<section>
+					<h3>Simple Map (Dojo)</h3>
+					<pre><code data-trim contenteditable>
+var map;
+require(["esri/map", "dojo/domReady!"], function(Map) {
+map = new Map("map", {
+	  basemap: "topo",
+	  center: [-122.45, 37.75], // longitude, latitude
+	  zoom: 13
+    });
+});
+						</code>
+					</pre>
+					<a href="https://developers.arcgis.com/javascript/jssamples/map_simple.html">Esri Sample</a>
+					</section>
+
+				<section>
+					<h3>Simple Map (Esri Leaflet)</h3>
+					<pre><code data-trim contenteditable>
+var map = L.map('map').setView([37.78, -92.85], 4);
+L.esri.basemapLayer('Streets').addTo(map);
+						</code>
+					</pre>
+					<a href="http://esri.github.io/esri-leaflet/examples/showing-a-basemap.html"> Esri Sample</a>
+				</section>
+
+
+
+
+
+
 
 
 				<section class="present" style="top: -198.5px; display: block;"><h3><a>Client & Server</a></h3>
@@ -84,9 +112,6 @@
 					<p>Label client-side w/ <a href="">Feature Layer</a> and <a href="">Label Layer</a></p>
 
 				</section>
-
-
-
 				<section data-background="#007777">
 					<h3>Label Element</h3>
 					<section>
@@ -127,7 +152,7 @@
 					</section>
 				<section data-background="#007777">
 					<iframe width="100%" height="700" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_leaflet_basemap_example.html">
-                    </iframe>
+                    	</iframe>
 				</section>
 				<section data-background="#007777">
 					<iframe width="100%" height="700" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_leaflet_labels_only.html">
@@ -200,7 +225,16 @@
 				</section>
 				
 				<section data-background="#AA6779">
-					<h3>Dynamic Labels How To</h3>
+					<h2>Adding Dynamic Map</h2>
+					<pre><code data-trim contenteditable>
+var map = L.map('map').setView([34.025, -116.203], 9);
+L.esri.basemapLayer('Oceans').addTo(map);
+var federalLands = L.esri.dynamicMapLayer('http://maps1.arcgisonline.com/ArcGIS/rest/services/USA_Federal_Lands/MapServer', {
+    opacity: 1,
+    useCors: false
+  }).addTo(map);
+					</code></pre>
+					
 				</section>
 
 
