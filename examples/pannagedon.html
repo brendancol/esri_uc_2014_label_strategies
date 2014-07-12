@@ -36,22 +36,22 @@
 <script>
   var map = L.map('map').setView([37, -90], 8);
   var layer = L.esri.basemapLayer('ImageryLabels')
-  layer.setOpacity(0.2);
+  layer.setOpacity(0.3);
   layer.addTo(map);
 
   var map2 = L.map('map2').setView([37, -90], 8);
   var layer2 = L.esri.basemapLayer('ImageryLabels')
-  layer2.setOpacity(0.5);
+  layer2.setOpacity(0.3);
   layer2.addTo(map2);
 
   var map3 = L.map('map3').setView([37, -90], 8);
   var layer3 = L.esri.basemapLayer('ImageryLabels')
-  layer3.setOpacity(0.6);
+  layer3.setOpacity(0.4);
   layer3.addTo(map3);
 
   var map4 = L.map('map4').setView([37, -90], 8);
   var layer4 = L.esri.basemapLayer('ImageryLabels')
-  layer4.setOpacity(0.4);
+  layer4.setOpacity(0.5);
   layer4.addTo(map4);
 
   var bearing = parseInt(Math.random() * 360);
