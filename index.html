@@ -45,21 +45,32 @@
 		<div class="reveal">
 			<div class="slides" >
 				<section width="100%" height="1000" class="fullscreen">
-					<h1>Labeling Strategies</h1>
-					<h3>w/ Esri JavaScript APIs</h3>
-					<p>
+					<h1><span class="largeLetter">L</span>abeling <span class="largeLetter">S</span>trategies</h1>
+					<h3>w/ <span class="largeLetter">E</span>sri <span class="largeLetter">J</span>ava<span class="largeLetter">S</span>cript <span class="largeLetter">A</span>PIs</h3>
+					<br>
+					<img class="logo" src="images/blueraster-WithoutBevel-300dpi.png" width="340" />
+					<h4>
 						<small>
-						<a href="http://github.com/brendancol">Brendan Collins</a> / 
-						<a href="http://twitter.com/brendancol">@brendancol</a>
+						<a href="http://twitter.com/blueraster">@blueraster</a>
 					</small>
-					</p>
-					<p>
+					</h4>
+				</section>
+				<section data-background="#007777" height="1000">
+					<iframe width="100%" height="700px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/pannagedon.html" style="position:absolute;margin-left:-50%;z-index:0;">
+                    </iframe>
+                    <br><br><br><br><br>
+                    <h2>
 						<small>
-							<a href="http://blog.blueraster.com">Blue Raster</a> / 
-							<a href="http://twitter.com/blueraster">@blueraster</a>
+						Brendan Collins
 						</small>
-					</p>
-					<img class="logo" src="http://www.blueraster.com/wp-content/themes/blueraster/images/logo.png"/>
+					</h4>
+                    <h3>
+						<small>
+						<a href="http://twitter.com/blueraster">@brendancol</a>
+						</small>
+					</h4>
+					<br><br><br><br><br><br><br>
+
 				</section>
 
 				<section class="present">
@@ -68,18 +79,14 @@
 
 				<section>
 					<h3>Simple Map (Dojo)</h3>
-					<pre><code data-trim contenteditable>
+					<pre><code data-trim contenteditable class="javascript">
 var map;
 require(["esri/map", "dojo/domReady!"], function(Map) {
-map = new Map("map", {
-	  basemap: "topo",
-	  center: [-122.45, 37.75], // longitude, latitude
-	  zoom: 13
-    });
+	map = new Map("map", {basemap:"topo", center:[-122.45, 37.75], zoom:13});
 });
 						</code>
 					</pre>
-					<a href="https://developers.arcgis.com/javascript/jssamples/map_simple.html">Esri Sample</a>
+					<h4><small><a href="https://developers.arcgis.com/javascript/jssamples/map_simple.html">Esri Sample</a></small></h4>
 					</section>
 
 				<section>
