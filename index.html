@@ -63,9 +63,7 @@
                     </iframe>
                     <br><br><br>
                     <h2 class="fragment fade-in" style="position: relative;">
-						<small>
 						Brendan Collins
-						</small>
 					</h2>
 					<h2 class="fragment fade-in" style="position: relative;">
 						<small>
@@ -151,7 +149,8 @@
 				</section>
 
 				<section>
-					<h3>Simple Map (Dojo)</h3>
+					<div class="fragment fade-in">
+						<h3>Simple Map (Dojo)</h3>
 					<pre><code data-trim contenteditable class="javascript">
 var map;
 require(["esri/map", "dojo/domReady!"], function(Map) {
@@ -160,16 +159,22 @@ require(["esri/map", "dojo/domReady!"], function(Map) {
 						</code>
 					</pre>
 					<h4><small><a href="https://developers.arcgis.com/javascript/jssamples/map_simple.html">Esri Sample</a></small></h4>
-					</section>
+					</div>
 
-				<section>
-					<h3>Simple Map (Esri Leaflet)</h3>
+					<div class="fragment fade-in">
+						<h3>Simple Map (Esri Leaflet)</h3>
 					<pre><code data-trim contenteditable>
 var map = L.map('map').setView([37.78, -92.85], 4);
 L.esri.basemapLayer('Streets').addTo(map);
 						</code>
 					</pre>
 					<a href="http://esri.github.io/esri-leaflet/examples/showing-a-basemap.html"> Esri Sample</a>
+					</div>
+					
+					</section>
+
+				<section>
+					
 				</section>
 
 				<section class="present" style="top: -198.5px; display: block;"><h3><a>Client & Server</a></h3>
@@ -309,15 +314,6 @@ var federalLands = L.esri.dynamicMapLayer('http://maps1.arcgisonline.com/ArcGIS/
 					</code></pre>
 					
 				</section>
-
-
-				
-
-				
-				
-
-				
-
 				<section>
 					<h3>Client-side Labeling</h3>
 				</section>
@@ -343,12 +339,14 @@ map.addLayer(labels);
 				<section>
 					<h3>Scale Dependant Rendering</h3>
 				</section>
-				
-
+				<section class="full">
+					<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_dojo_label_layer_scale_dependant.html">
+                    </iframe>
+				</section>
 				<section>
 					<h3>Client-side Drop Shadow</h3>
 				</section>
-				<section>
+				<section class="full">
 					<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_dojo_label_layer_drop_shadow.html">
                     </iframe>
 				</section>
