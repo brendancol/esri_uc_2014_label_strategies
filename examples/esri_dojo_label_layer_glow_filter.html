@@ -14,8 +14,9 @@
     <!-- Label Layer Dropshadow -->
     <svg height="0" xmlns="http://www.w3.org/2000/svg">
       <filter id="drop-shadow">
-        <feOffset dx="2" dy="2" result="offsetblur"/>
-        <feFlood flood-color="rgba(150,150,150,.5)"/>
+        <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+        <feOffset dx="0" dy="0" result="offsetblur"/>
+        <feFlood flood-color="rgba(255,150,230,1)"/>
         <feComposite in2="offsetblur" operator="in"/>
         <feMerge>
           <feMergeNode/>
@@ -47,7 +48,7 @@
         "esri/layers/LabelLayer",
 
         "esri/Color",
-
+        
         "dojo/domReady!"
       ], function(
         Map, Extent, FeatureLayer,
