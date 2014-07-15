@@ -163,7 +163,7 @@ require(["esri/map", "dojo/domReady!"], function(Map) {
 
 					<div class="fragment fade-in">
 						<h3>Simple Map (Esri Leaflet)</h3>
-					<pre><code data-trim contenteditable>
+					<pre><code data-trim contenteditable class="javascript">
 var map = L.map('map').setView([37.78, -92.85], 4);
 L.esri.basemapLayer('Streets').addTo(map);
 						</code>
@@ -187,11 +187,13 @@ L.esri.basemapLayer('Streets').addTo(map);
 					<p class="fragment fade-in">Limited Data</p>
 				</section>
 				
-				<section data-background="#007777" data-background="images/tilegrid.png" data-background-size="100px" data-background-repeat="repeat">
-					<h3>Tiled Labels</h3>
+				<section data-background="images/tilegrid.png" data-background-repeat="repeat" data-background-size="300px">
+					<h2>Tiled Map Labels</h3>
+					<h4>(Server-side)</h4>
+					<br>
 				</section>
-				<section data-background="#007777">
-						<h2>Label Tiles</h2>
+				<section data-background="images/tilegrid.png" data-background-repeat="repeat" data-background-size="300px">
+						<h2>Why Tiles?</h2>
 						<ol>
 							<li>
 								<p class="fragment fade-in">Generated Offline</p>
@@ -232,26 +234,82 @@ L.esri.basemapLayer('Streets').addTo(map);
 					<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_leaflet_basemap_example5.html">
                     </iframe>
 				</section>
+				<section style="top: 0px; display: block;" data-background="images/tilegrid.png" data-background-repeat="repeat" data-background-size="300px"><div style="background-color: rgba(20, 98, 20, 0.5); width: 100%; height: 400%; position: absolute; top: -100%; left: -45%; z-index: -1;">
+				</div>
+				<div>
 
-				<section>
-					<h3>Simple Basemap + Reference Tile Layer</h3>
+				    <div style="width: 50%; display: inline-block; margin-right: 5%; vertical-align: center;float:left">
+				    	<br>
+				    	<h2 style="text-align: right;">Reference Layer</h2>
+				    	<br>
+				        <p  style="text-align: right;">
+				        <b>OceansLabels</b>
+				        </p>
+				        <p  style="text-align: right;">
+				        <b>GrayLabels</b>
+				        </p>
+				        <p  style="text-align: right;">
+				        <b>DarkGrayLabels</b>
+				        </p>
+				        <p  style="text-align: right;">
+				        <b>ImageryLabels</b>
+				        </p>
+				        <p  style="text-align: right;">
+				        <b>ShadedReliefLabels</b>
+				        </p>
+				    </div>
+
+				    <div style="width: 40%; display: inline-block; vertical-align: center; float:left;margin-left: 5%;">
+				    	<br>
+				    	<h2 style="text-align: left;">Basemap</h2>
+				    	<br>
+				    	<p style="text-align: left;">
+				        <b>Oceans</b>
+				        </p>
+
+				        <p style="text-align: left;">
+				        <b>Gray</b>
+				        </p>
+				        <p style="text-align: left;">
+				        <b>DarkGray</b>
+				        </p>
+				        <p style="text-align: left;">
+				        <b>Imagery</b>
+				        </p>
+				        <p style="text-align: left;">
+				        <b>ShadedRelief</b>
+				        </p>
+				    </div>
+				</div>
+
+				
 				</section>
-				<section class="full">
-					<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_dojo_simple_base1.html">
+
+				<section data-background="images/tilegrid.png" data-background-repeat="repeat" data-background-size="300px">
+					<h2>Basemap + Reference Layer</h2>
+					<br>
+					<pre><code data-trim contenteditable class="javascript">
+var map = L.map('map').setView([32.73, -117.17], 10);
+L.esri.basemapLayer('DarkGray').addTo(map);
+L.esri.basemapLayer('DarkGrayLabels').addTo(map);
+					</code></pre>
+					
+				</section>
+				<section data-background="#000099" class="full">
+					<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_dojo_simple_base3.html">
                     </iframe>
 				</section>
 				<section data-background="#000099" class="full">
 					<iframe width="100%" height="900" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_dojo_simple_base2.html">
                     </iframe>
 				</section>
-				<section data-background="#000099" class="full">
-					<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_dojo_simple_base3.html">
+				<section class="full">
+					<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_dojo_simple_base1.html">
                     </iframe>
 				</section>
 				<section>
 					<h3>Simple Basemap + Reference Tile Layer HOW TO</h3>
 				</section>
-
 				<section data-background="#AA6779">
 					<h3>Dynamic Labels</h3>
 				</section>
@@ -283,7 +341,7 @@ L.esri.basemapLayer('Streets').addTo(map);
 				
 				<section data-background="#AA6779">
 					<h2>Adding Dynamic Map</h2>
-					<pre><code data-trim contenteditable>
+					<pre><code data-trim contenteditable class="javascript">
 var map = L.map('map').setView([34.025, -116.203], 9);
 L.esri.basemapLayer('Oceans').addTo(map);
 var federalLands = L.esri.dynamicMapLayer('http://maps1.arcgisonline.com/ArcGIS/rest/services/USA_Federal_Lands/MapServer', {
@@ -303,7 +361,7 @@ var federalLands = L.esri.dynamicMapLayer('http://maps1.arcgisonline.com/ArcGIS/
 				</section>
 				<section>
 					<h2>Using Label Layer</h2>
-					<pre><code data-trim contenteditable>
+					<pre><code data-trim contenteditable class="javascript">
 var labelField = "STATE_NAME";
 var statesLabel = new TextSymbol().setColor(new Color("#C7C7C7"));
 statesLabel.font.setSize("14pt");
