@@ -32,17 +32,12 @@
 <div id="map"></div>
 
 <script>
-  var map = L.map('map').setView([34.025, -116.203], 9);
-
+  var map = L.map('map').setView([32.73, -117.17], 9);
   L.esri.basemapLayer('Oceans').addTo(map);
-
   var federalLands = L.esri.dynamicMapLayer('http://maps1.arcgisonline.com/ArcGIS/rest/services/USA_Federal_Lands/MapServer', {
     opacity: 1,
     useCors: false
   }).addTo(map);
-
-
-  
 </script>
 
 </body>

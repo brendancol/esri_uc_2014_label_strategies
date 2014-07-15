@@ -56,24 +56,13 @@
           extent: bbox
         });
 
-        //Text Renderers
-        var smallLabelFont = new Font("8pt", Font.STYLE_NORMAL, Font.VARIANT_NORMAL, Font.WEIGHT_LIGHTER,"lato");
-        var smallLayerLabel = new TextSymbol().setColor(new Color([255,255,255,1.0]));
-          smallLayerLabel.font = smallLabelFont;
-          smallLabelRenderer = new SimpleRenderer(smallLayerLabel);
-
-          var mediumLabelFont = new Font("10pt", Font.STYLE_NORMAL, Font.VARIANT_NORMAL, Font.WEIGHT_LIGHTER,"lato");
-          var mediumLayerLabel = new TextSymbol().setColor(new Color([255,255,255,1.0]));
-          mediumLayerLabel.font = mediumLabelFont;
-          mediumLabelRenderer = new SimpleRenderer(mediumLayerLabel);
-
-        var largeLabelFont = new Font("12pt", Font.STYLE_NORMAL, Font.VARIANT_NORMAL, Font.WEIGHT_LIGHTER,"lato");
-        var largeLayerLabel = new TextSymbol().setColor(new Color([255,255,255,1.0]));
-          largeLayerLabel.font = largeLabelFont;
-          largeLabelRenderer = new SimpleRenderer(largeLayerLabel);
+        var color = new Color("#C7C7C7");
+        var labelSymbol = new TextSymbol().setColor(color);
+        labelSymbol.font.setSize("10pt");
+        labelSymbol.font.setFamily("arial");
+        mediumLabelRenderer = new SimpleRenderer(labelSymbol);
 
         //Geometry Renderers
-        var color = new Color("#C7C7C7");
         var line = new SimpleLineSymbol("solid", color, 1.5);
         var sym = new SimpleFillSymbol("solid", line, null);
         var polygonRenderer = new SimpleRenderer(sym);
@@ -84,42 +73,16 @@
         var statesUrl = "http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3";
         var states = new FeatureLayer(statesUrl, {
           id: "states",
-          outFields: ["STATE_ABBR"],
-          minScale:180000000,
-          maxScale:9000000
-        });
-
-        var statesUrl = "http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3";
-        var states = new FeatureLayer(statesUrl, {
-          id: "states",
           outFields: ["STATE_NAME", "STATE_ABBR"],
-          minScale:9000000,
+          minScale:180000000,
           maxScale:5000000
         });
 
         states.setRenderer(polygonRenderer);
         map.addLayer(states);
 
-        //State Label Renderers
-        var stateLabelScales = {rendererInfos: [{
-          "renderer": mediumLabelRenderer,
-          "minScale": 10000000,
-          "maxScale": 5000000
-        }]};
-
-        var stateLabelScales2 = {rendererInfos: [{
-          "renderer": mediumLabelRenderer,
-          "minScale": 180000000,
-          "maxScale": 10000000
-        }]};
-
-        var statesLabelRenderer = new ScaleDependentRenderer(stateLabelScales);
-        var statesLabelRenderer2 = new ScaleDependentRenderer(stateLabelScales2);
-
         var labelLayer = new LabelLayer({ id: "stateLabels" });
-        labelLayer.addFeatureLayer(states, statesLabelRenderer, "${STATE_NAME}");
-        labelLayer.addFeatureLayer(states, statesLabelRenderer2, "${STATE_ABBR}");
-
+        labelLayer.addFeatureLayer(states, mediumLabelRenderer, "${STATE_NAME}");
 
         // ==================================================
         //County Label Renderer
@@ -134,18 +97,7 @@
         counties.setRenderer(polygonRenderer);
         map.addLayer(counties);
 
-        var countyLabelScales = {rendererInfos: [{
-          "renderer": mediumLabelRenderer,
-          "minScale": 2000000,
-          "maxScale": 1000000
-        }, {
-          "renderer": smallLabelRenderer,
-          "minScale": 1000000,
-          "maxScale": 500000
-        }]};
-
-        var countyLabelRenderer = new ScaleDependentRenderer(countyLabelScales);
-        labelLayer.addFeatureLayer(counties, countyLabelRenderer, "${NAME}");
+        labelLayer.addFeatureLayer(counties, mediumLabelRenderer, "${NAME}");
 
         // ==================================================
         // Block Group Label Renderer
@@ -159,14 +111,7 @@
         groups.setRenderer(polygonRenderer);
         map.addLayer(groups);
 
-        var groupLabelScales = {rendererInfos: [{
-          "renderer": mediumLabelRenderer,
-          "minScale": 500000,
-          "maxScale": 100000,
-        }]};
-
-        var groupLabelRenderer = new ScaleDependentRenderer(groupLabelScales);
-        labelLayer.addFeatureLayer(groups, groupLabelRenderer, "${BLKGRP}");
+        labelLayer.addFeatureLayer(groups, mediumLabelRenderer, "${BLKGRP}");
 
         // ==================================================
         // Block Label Renderer
@@ -188,13 +133,7 @@
         blocks.setRenderer(pointRenderer);
         map.addLayer(blocks);
 
-        var blockLabelScales = {rendererInfos: [{
-          "renderer": mediumLabelRenderer,
-          "minScale": 50000
-        }]};
-
-        var blockLabelRenderer = new ScaleDependentRenderer(groupLabelScales);
-        labelLayer.addFeatureLayer(blocks, blockLabelRenderer, "${BLOCK}");
+        labelLayer.addFeatureLayer(blocks, mediumLabelRenderer, "${BLOCK}");
 
         map.addLayer(labelLayer);
       });
