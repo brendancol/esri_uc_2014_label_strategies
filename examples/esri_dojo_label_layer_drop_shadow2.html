@@ -14,8 +14,8 @@
     <!-- Label Layer Dropshadow -->
     <svg height="0" xmlns="http://www.w3.org/2000/svg">
       <filter id="drop-shadow">
-        <feOffset dx="2" dy="2" result="offsetblur"/>
-        <feFlood flood-color="rgba(150,150,150,.5)"/>
+        <feOffset dx="5" dy="5" result="offsetblur"/>
+        <feFlood flood-color="rgba(255,0,0,.5)"/>
         <feComposite in2="offsetblur" operator="in"/>
         <feMerge>
           <feMergeNode/>
@@ -79,7 +79,7 @@
 
         // create a text symbol to define the style of labels
         var statesLabel = new TextSymbol().setColor(statesColor);
-        statesLabel.font.setSize("10pt");
+        statesLabel.font.setSize("20pt");
         statesLabel.font.setFamily("arial");
         statesLabelRenderer = new SimpleRenderer(statesLabel);
         var labels = new LabelLayer({ id: "labels" });
