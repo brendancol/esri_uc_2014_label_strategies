@@ -299,16 +299,17 @@ L.esri.basemapLayer('DarkGrayLabels').addTo(map);
 					<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_dojo_simple_base3.html">
                     </iframe>
 				</section>
-				<section data-background="#000099" class="full">
-					<iframe width="100%" height="900" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_dojo_simple_base2.html">
-                    </iframe>
-				</section>
 				<section class="full">
 					<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_dojo_simple_base1.html">
                     </iframe>
 				</section>
-				<section>
-					<h3>Simple Basemap + Reference Tile Layer HOW TO</h3>
+				<section data-background="#000099" class="full">
+					<iframe width="100%" height="900" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_dojo_simple_base2.html">
+                    </iframe>
+				</section>
+				<section data-background="#000099" class="full">
+					<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_dojo_simple_base3.html">
+                    </iframe>
 				</section>
 				<section data-background="#AA6779">
 					<h3>Dynamic Labels</h3>
@@ -387,12 +388,48 @@ map.addLayer(labels);
 					<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_dojo_label_layer_drop_shadow.html">
                     </iframe>
 				</section>
+				<section class="full">
+					<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_dojo_label_layer_drop_shadow2.html">
+                    </iframe>
+				</section>
 				<section>
 					<h2>Drop Shadow SVG</h2>
 					<pre><code data-trim contenteditable>
 
 <svg height="0" xmlns="http://www.w3.org/2000/svg">
   <filter id="drop-shadow">
+    <feOffset dx="2" dy="2" result="offsetblur"/>
+    <feFlood flood-color="rgba(150,150,150,.5)"/>
+    <feComposite in2="offsetblur" operator="in"/>
+    <feMerge>
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+</svg>
+
+<style>
+  text {
+    filter: url(#drop-shadow);
+  }
+</style>
+
+					</code></pre>
+					<a href="http://github.com/patrickalrt"><small>http://github.com/patrickalrt</small></a>
+				</section>
+				<section>
+					<h3>Client-side Glow Filter</h3>
+				</section>
+				<section class="full">
+					<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="examples/esri_dojo_label_layer_glow_filter.html">
+                    </iframe>
+				</section>
+				<section>
+					<h2>Glow SVG</h2>
+					<pre><code data-trim contenteditable>
+
+<svg height="0" xmlns="http://www.w3.org/2000/svg">
+  <filter id="glow-filter">
     <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
     <feOffset dx="0" dy="0" result="offsetblur"/>
     <feFlood flood-color="rgba(255,150,230,1)"/>
@@ -406,7 +443,7 @@ map.addLayer(labels);
 
 <style>
   text {
-    filter: url(#drop-shadow);
+    filter: url(#glow-filter);
   }
 </style>
 
